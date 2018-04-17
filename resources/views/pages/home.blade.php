@@ -17,23 +17,7 @@
     <h1>Home Page</h1>
     <p>{{ $page->introductory_text }}</p>
     <div class="row">
-      <div class="col-md-6">
-        <h1>Latest Posts</h1>
-        @foreach ($latest_posts AS $post)
-          <h3><a href="/posts/{{ $post->id }}">{{ $post->title }}</a> ({{ $post->name}})</h3>
-          <?php
-          if(str_word_count($post->content) > 20) {
-            $part_content = substr($post->content,250).'...';
-          }
-          else {
-            $part_content = $post->content;
-          }
-
-          echo '<p>'.$part_content.'</p>';
-          ?>
-       @endforeach
-      </div>
-      <div class="col-md-6">
+      <div class="col-md-8 pull-4">
         <h2>Simple Ticketing</h2>
         <p>Your ticket reference is: {{ $ticket_reference }}. Enter it in the form below to generate tickets.</p><br>
         <form action="/tickets/save" method="post">
