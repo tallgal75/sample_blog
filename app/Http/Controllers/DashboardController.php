@@ -67,7 +67,7 @@ class DashboardController extends Controller
         $user_id = Auth::user()->id;
         $tickets = DB::table('tickets')
                ->select(DB::raw('id,ticket_id'))
-               ->where('id', '<>', $user_id)
+               ->where('id', '=', $user_id)
                ->get();
         return $tickets;
     }
@@ -76,7 +76,7 @@ class DashboardController extends Controller
     {
         $tickets = DB::table('tickets')
                ->select(DB::raw('ticket_id'))
-               ->where('id', '<>', $id)
+               ->where('id', '=', $id)
                ->get();
         return $tickets;
     }
