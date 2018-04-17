@@ -72,7 +72,7 @@ class UsersController extends Controller
            User::create([
                   'name' => $request->name,
                   'email' => $request->email,
-                  'password' => bcrypt($request->password)
+                  'password' => encrypt($request->password)
               ]);
 
            return redirect($this->redirectTo);
@@ -116,7 +116,7 @@ class UsersController extends Controller
             ->update([
               'name' => $request->name,
               'email' => $request->email,
-              'password' => bcrypt($request->password)
+              'password' => encrypt($request->password)
             ]);
          return redirect($this->redirectTo);
     }
