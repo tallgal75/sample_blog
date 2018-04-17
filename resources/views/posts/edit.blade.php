@@ -57,7 +57,3 @@
     </form>
   </div>
 @endsection
-
-@section('footer')
-  @parent
-@endsection
